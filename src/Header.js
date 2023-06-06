@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import ColorContainer from "./ColorContainer";
 import Tools from "./Tools";
-import Brush from "./Brush";
 import './Header.css'
 
 function Header({handleUtensil}) {
@@ -13,7 +12,6 @@ function Header({handleUtensil}) {
             </div>
             <div id="header">  
                 <Tools handleUtensil={handleUtensil}/>
-                <Brush handleUtensil={handleUtensil}/>
                 <ColorContainer handleUtensil={handleUtensil}/>
             </div>
         </>
