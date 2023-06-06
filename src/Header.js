@@ -8,7 +8,7 @@ function Header({handleUtensil}) {
     return (
         <>
             <div id="top-page">
-            <p>🎨 untilted - Paint</p>
+            <p>🎨 untittled - Paint</p>
             </div>
             <div id="header">  
                 <Tools handleUtensil={handleUtensil}/>

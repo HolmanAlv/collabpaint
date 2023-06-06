@@ -1,4 +1,5 @@
 import React, { useState, useRef } from "react";
+import html2canvas from "html2canvas";
 
 function Container({ utensil }) {
   const { tool, color } = utensil;
@@ -48,8 +49,19 @@ function Container({ utensil }) {
     setBrushSize(newSize);
   }
 
+  function handleSaveImage() {
+    html2canvas(canvasRef.current).then((canvas) => {
+        const image = canvas.toDataURL("image/png");
+        const link = document.createElement("a");
+        link.href = image;
+        link.download = "image.png";
+        link.click();
+    });
+}
+
   return (
     <div>
+        <div><button onClick={handleSaveImage}>💾</button></div>
       <canvas
         ref={canvasRef}
         width={790}
@@ -79,6 +91,8 @@ function Container({ utensil }) {
       ) : null}
     </div>
   );
+
 }
+
 
 export default Container;
