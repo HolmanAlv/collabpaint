@@ -1,15 +1,21 @@
-import React from "react";
+import React from 'react';
 
-function Brush({handleUtensil}) {
-    return (
-        <>  
-            <select onChange={(event)=>console.log(event.target.value, "weight")} id='brush-detail'>
-                <option>Thin</option>
-                <option>Normal</option>
-                <option>Thick</option>
-            </select>
-        </>
-    );
+function Brush({ handleUtensil }) {
+  const handleWeightChange = (event) => {
+    const weight = event.target.value;
+    handleUtensil(weight, 'weight');
+  };
+
+  return (
+    <>
+      <select onChange={handleWeightChange} id="brush-detail">
+        <option value="thin">Thin</option>
+        <option value="normal">Normal</option>
+        <option value="thick">Thick</option>
+      </select>
+    </>
+  );
 }
 
 export default Brush;
+

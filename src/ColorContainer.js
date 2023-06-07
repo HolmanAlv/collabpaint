@@ -3,17 +3,17 @@ import ColorCard from "./ColorCard";
 
 const colorlist = ["red", "blue", "yellow", "pink", "black", "white", "brown", "purple", "orange", "grey"];
 
-function ColorContainer({utensil, handleUtensil}) {
+function ColorContainer({ utensil, handleUtensil }) {
 
-    const colorGrid = colorlist.map((color) => <ColorCard handleUtensil={handleUtensil} key={color} color={color}/>)
-    
+    const colorGrid = colorlist.map((color) => <ColorCard handleUtensil={handleUtensil} key={color} color={color} />)
+
     return (
         <>
             <div id="color-grid">
                 {colorGrid}
-            </div>  
+            </div>
         </>
     );
 }
 
-export default ColorContainer;
+export default ColorContainer; 

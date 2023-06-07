@@ -51,33 +51,22 @@ function Container({ utensil }) {
 
   function handleSaveImage() {
     html2canvas(canvasRef.current).then((canvas) => {
-        const image = canvas.toDataURL("image/png");
-        const link = document.createElement("a");
-        link.href = image;
-        link.download = "image.png";
-        link.click();
+      const image = canvas.toDataURL("image/png");
+      const link = document.createElement("a");
+      link.href = image;
+      link.download = "image.png";
+      link.click();
     });
-}
+  }
 
   return (
-    <div>
-        <div><button onClick={handleSaveImage}>💾</button></div>
-      <canvas
-        ref={canvasRef}
-        width={790}
-        height={600}
-        style={{
-          backgroundColor: "white",
-          border: "5px solid rgb(207, 207, 207)",
-          borderStyle: "groove",
-        }}
-        onMouseDown={handleMouseDown}
-        onMouseUp={handleMouseUp}
-        onMouseMove={handleMouseMove}
-      ></canvas>
-      {tool === "brush" || tool === "eraser" ? (
-        <div>
-          <label htmlFor="brushSize">Tamaño de la herramienta:</label>
+    <div >
+      <div class="canvas">
+        <hr />
+        <button class="toolButton" onClick={handleSaveImage}>💾</button>
+        <hr />
+        <>
+          <label htmlFor="brushSize"> Tamaño de la herramienta:</label>
           <input
             type="range"
             id="brushSize"
@@ -87,8 +76,23 @@ function Container({ utensil }) {
             onChange={handleBrushSizeChange}
           />
           <span>{brushSize}</span>
-        </div>
-      ) : null}
+        </>
+        <hr />
+
+      </div>
+      <canvas
+        ref={canvasRef}
+        width={790}
+        height={600}
+        style={{
+          backgroundColor: "white",
+          border: "5px solid rgb(207, 207, 207)",
+          borderRadius: '0px 0px 10px 10px'
+        }}
+        onMouseDown={handleMouseDown}
+        onMouseUp={handleMouseUp}
+        onMouseMove={handleMouseMove}
+      ></canvas>
     </div>
   );
 
