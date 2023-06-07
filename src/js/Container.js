@@ -1,5 +1,8 @@
 import React, { useState, useRef } from "react";
 import SideBar from "./SideBar";
+import html2canvas from "html2canvas";
+
+
 
 function Container({ utensil }) {
   const { tool, color } = utensil;
@@ -23,6 +26,7 @@ function Container({ utensil }) {
       context.lineCap = "round";
       context.moveTo(x, y);
     }
+
   }
 
   function handleMouseMove(event) {
@@ -48,28 +52,34 @@ function Container({ utensil }) {
     setBrushSize(newSize);
   }
 
-  return (
-    <React.Fragment>
-      <div>
-      {tool === "brush" || tool === "eraser" ? (
-          <div class=" text-center">
-            <label htmlFor="brushSize">Tamaño del Pincel</label>
-            <div>
-              
-            </div>
-            <input
-              type="range"
-              id="brushSize"
-              min={1}
-              max={20}
-              value={brushSize}
-              onChange={handleBrushSizeChange}
-            />
-            <span>{brushSize}</span>
-          </div>
-        ) : null}
+  function handleSaveImage() {
+    html2canvas(canvasRef.current).then((canvas) => {
+      const image = canvas.toDataURL("image/png");
+      const link = document.createElement("a");
+      link.href = image;
+      link.download = "image.png";
+      link.click();
+    });
+  }
 
-        <SideBar />
+
+
+  return (
+    <div >
+      <button class="btn" onClick={handleSaveImage}>💾</button>
+      <div class="container text-center">
+          <label htmlFor="brushSize"> Tamaño del Pincel</label>
+          <div></div>
+          <input
+            type="range"
+            id="brushSize"
+            min={1}
+            max={20}
+            value={brushSize}
+            onChange={handleBrushSizeChange}
+          />
+          <span>{brushSize}</span>
+
       </div>
       <div class="container">
         <canvas
@@ -79,19 +89,15 @@ function Container({ utensil }) {
           style={{
             backgroundColor: "white",
             border: "5px solid rgb(207, 207, 207)",
-            borderStyle: "groove",
-            cursor: "crosshair",
+            borderRadius: '0px 0px 10px 10px',
+            cursor: "crosshair"
           }}
           onMouseDown={handleMouseDown}
           onMouseUp={handleMouseUp}
           onMouseMove={handleMouseMove}
-        >
-        </canvas>
-
+        ></canvas>
       </div>
-
-
-    </React.Fragment>
+    </div>
   );
 }
 

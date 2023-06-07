@@ -5,9 +5,33 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+hr{
+  height:25px;
+  width:2px;
+  border-width:0;
+  color: lightgray;
+  background-color:lightgray;
+}
+
+label{
+  font-family: monospace;
+  font-size: x-large;
+  padding: 5px 0 0 7px;
+  color: rgb(48, 48, 48);
+}
+
+input{
+  font-family: monospace;
+  font-size: xx-small;
+  padding: 5px 0 0 7px;
+
+  width: 350px;
 }

@@ -1,41 +1,85 @@
 .color-icon{
-    width: 38px;
-    height: 38px;
+    width: 30px;
+    height: 30px;
     margin: 3px;
     float: left;
-    position: relative;
+    position: center;
     border: 2px solid black;
-	padding: 13px 18px;
 	border-radius: 60px;
-}
-.color-icon:hover{
-    box-shadow: 1px 1px 1px 1px rgb(0,0,0,0.4);
+    margin: 2px;
 }
 
-#top-page{
-    background-color: rgba(10, 107, 253, 0.863);
+.color-icon:hover {
+    box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.4);
+}
+
+.color-icon:focus {
+    box-shadow: 1px 1px 1px 1px rgb(165, 165, 165);
+}
+
+#tools {
+    background-color: rgb(255, 255, 255);
+    padding: 'Spx';
+    width: 180px;
+    text-align: center;
+}
+
+.toolButton {
+    background-color: transparent;
+    border: 2px solid rgba(29, 29, 29, 0.288);
+    border-radius: 10%;
+    width: 35px;
+    height: 35px;
+    margin: -1px;
+    text-align: center;
+    padding: 2px;
+}
+
+.toolButton:hover {
+    box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.4);
+
+}
+
+.toolButton:focus {
+    box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.4);
+
+}
+
+
+#top-page {
+    background-color: rgba(106, 161, 243, 0.863);
     border-radius: 10px 10px 0px 0px;
-    height: 25px;
+    height: 40px;
     width: 800px;
 }
 
-#top-page p{
+#top-page p {
     font-family: monospace;
-    padding: 4px 0 0 5px;
+    font-size: x-large;
+    padding: 5px 0 0 7px;
     color: white;
 }
 
-#color-grid{
-
-    padding: 10px;
-    width: 600px;
+#color-grid {
+    position: relative;
+    padding: 5px;
+    width: 500px;
 }
 
-#header{
-    background-color: lightgrey;
+#header {
+    background-color: whitesmoke;
     width: 800px;
     display: flex;
     justify-content: space-between;
-    height: 40px;
+    height: 50px;
     align-items: center;
+}
+
+.canvas {
+    width: 800px;
+    display: flex;
+    justify-content: space-between;
+    background-color: whitesmoke;
+    align-items: start;
+    vertical-align: bottom;
 }
